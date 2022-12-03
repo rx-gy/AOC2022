@@ -10,9 +10,15 @@ with open('../data/001.txt') as data:
         if line == '\n':
             elfcount += 1
             if temp_cal > max_cals[0][0]:
+                max_cals[2][0] = max_cals[1][0]
+                max_cals[2][1] = max_cals[1][1]
+                max_cals[1][0] = max_cals[0][0]
+                max_cals[1][1] = max_cals[0][1]
                 max_cals[0][0] = temp_cal
                 max_cals[0][1] = elfcount
             elif temp_cal > max_cals[1][0]:
+                max_cals[2][0] = max_cals[1][0]
+                max_cals[2][1] = max_cals[1][1]
                 max_cals[1][0] = temp_cal
                 max_cals[1][1] = elfcount
             elif temp_cal > max_cals[2][0]:

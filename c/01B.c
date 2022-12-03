@@ -6,7 +6,6 @@ int main() {
     FILE *fp;
     fp  = fopen ("../data/001.txt", "r");
     char strbuf[30];
-    int calorie_count;
     int elf_cals = 0;
     int max_cals0 = 0;
     int max_cals1 = 0;
@@ -16,12 +15,7 @@ int main() {
 
     while(fgets(strbuf, 30, fp) != NULL){
         if(!strcmp(strbuf, "\n")){
-            if(elf_cals > max_cals0)
-                max_cals0 = elf_cals;
-            else if(elf_cals > max_cals1)
-                max_cals1 = elf_cals;
-            else if(elf_cals > max_cals2)
-                max_cals2 = elf_cals;
+            elf_cals > max_cals0 ? max_cals2 = max_cals1, max_cals1 = max_cals0, max_cals0 = elf_cals : elf_cals > max_cals1 ? max_cals2 = max_cals1, max_cals1 = elf_cals : elf_cals > max_cals2 ? max_cals2 = elf_cals : 0;
             elf_cals = 0;
         }else{
             elf_cals += atoi(strbuf);
